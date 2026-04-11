@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 	long long int qtb, qtdReg, tamBytes;
 	int n = 8;
 	int sobra;
-	char nomeArq[30];
+	char Arq[30];
 	a = fopen("cep.dat","rb"); 
 	fseek(a,0,SEEK_END);
 	tamBytes = ftell(a);
@@ -44,8 +44,8 @@ int main(int argc, char** argv)
 		
 		fread(ea,sizeof(Endereco)*qt,1,a); 
 		qsort(ea,qt,sizeof(Endereco),compara); 
-		sprintf(nomeArq,"08bloco_%d.dat",i); 
-		FILE *saida = fopen(nomeArq,"wb");
+		sprintf(Arq,"08bloco_%d.dat",i); 
+		FILE *saida = fopen(Arq,"wb");
 		fwrite(ea,sizeof(Endereco)*qt,1,saida); 
 		fclose(saida); 
 	}
@@ -55,15 +55,15 @@ int main(int argc, char** argv)
 	
 	int prox = 0, ultimo = n; 
 	while(prox<ultimo-1){
-		char nomeArq1[30];
-		char nomeArq2[30];
-		char nomeArq3[30];
-		sprintf(nomeArq1,"08bloco_%d.dat",prox);
-		sprintf(nomeArq2,"08bloco_%d.dat",prox+1);
-		sprintf(nomeArq3,"08bloco_%d.dat",ultimo);
-		FILE *a = fopen(nomeArq1,"rb");
-		FILE *b = fopen(nomeArq2,"rb");
-		FILE *saida = fopen(nomeArq3,"wb");
+		char Arq1[30];
+		char Arq2[30];
+		char Arq3[30];
+		sprintf(Arq1,"08bloco_%d.dat",prox);
+		sprintf(Arq2,"08bloco_%d.dat",prox+1);
+		sprintf(Arq3,"08bloco_%d.dat",ultimo);
+		FILE *a = fopen(Arq1,"rb");
+		FILE *b = fopen(Arq2,"rb");
+		FILE *saida = fopen(Arq3,"wb");
 
 		Endereco ea, eb;
 		fread(&ea,sizeof(Endereco),1,a);
